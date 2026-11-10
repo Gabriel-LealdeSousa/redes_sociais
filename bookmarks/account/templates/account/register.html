@@ -8,8 +8,9 @@
     <p>Por favor, cadastre-se usando o formulário abaixo:</p>
     
         <form method="post">
-        {{ user_form.as_p }}
-        {% csrf_token %}
+            {% csrf_token %}
+            {{ user_form.as_p }}
+        
         
     <p><input type="submit" value="Criar minha conta"></p>
 </form>

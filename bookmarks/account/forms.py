@@ -22,25 +22,25 @@ class UserRegistrationForm(forms.ModelForm):
     
     def clean_email(self):
         data = self.cleaned_data['email']
-    if User.objects.filter(email=data).exists():
-        raise forms.ValidationError('Email já está em uso.')
-    return data
+        if get_user_model().objects.filter(email=data).exists():
+            raise forms.ValidationError('Email já está em uso.')
+        return data
 
 class UserEditForm(forms.ModelForm):
     class Meta:
         model = get_user_model()
         fields = ['first_name', 'last_name', 'email']
 
-def clean_email():
-    data = self.cleanned_data['email']
-    qs = User.objects.exclude(
-        id=self.instance.id
-    ).filter(
-        email=data
-    )
-if qs.exists():
-raise forms.ValidationError('O Email está em uso.')
-return data
+    def clean_email(self):
+        data = self.cleaned_data['email']
+        qs = get_user_model().objects.exclude(
+            id=self.instance.id
+        ).filter(
+            email=data
+        )
+        if qs.exists():
+            raise forms.ValidationError('O Email está em uso.')
+        return data
 
 class ProfileEditForm(forms.ModelForm):
     class Meta:

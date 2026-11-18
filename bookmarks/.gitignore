@@ -1,0 +1,17 @@
+cat << 'EOF' > .gitignore
+# Credenciais e variáveis de ambiente
+.env
+client_secret*.json
+
+# Certificados HTTPS locais
+cert.crt
+cert.key
+
+# Banco de dados e arquivos de mídia locais
+db.sqlite3
+media/
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+EOF

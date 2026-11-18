@@ -28,4 +28,13 @@ Se você ainda não tem uma conta, <a href="{% url "register" %}">cadastre-se aq
         </a>
         </p>
     </div>
+    <div>
+        <ul>
+            <li class="google">
+                <a href="{% url "social:begin" "google-oauth2" %}">
+                    <p>Entrar com google</p>
+                </a> 
+                </li>
+        </ul>
+    </div>
 {% endblock %}

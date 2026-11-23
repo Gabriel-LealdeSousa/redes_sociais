@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social_djangohttps://mysite.com:8000/social-auth/complete/google-oauth2/',
+    'social_django',
     'django_extensions',
+    'images.apps.ImagesConfig',
 ]
 
 MIDDLEWARE = [

@@ -4,7 +4,10 @@
 
 {% block content %}
     <h1>Painel de Controle</h1>
-    <p>Bem-vindo ao seu painel de controle. Voçê pode editar seu perfil a qualquer momento.
-        <a href="{% url 'edit' %}">Editar perfil</a> ou <a href="url 'password_change' %}">Alterar senha</a>.</p>
-    </p>
+    {% Com total_images_created=request.user.images_created.count %}
+    <p>Bem-vindo ao seu painel de controle. Voçê pode adicionar {{total_images}}.</p>
+        {% endwith %}
+    <p>Arraste o botão para a sua barra de favoritos para salvar nos favoritos.</p>
+    <a href="{% url 'edit' %}">Editar perfil</a> ou <a href="url 'password_change' %}">Alterar senha</a>.</p>
+    
 {% endblock %}

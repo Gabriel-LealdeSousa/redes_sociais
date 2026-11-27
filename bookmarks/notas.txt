@@ -1,1 +1,3 @@
 pag 40 fazer o settings e seguir a diante
+parei na pág 40 emitir no terminal os cmds
+'easy_thumbnails', add com sucesso no settings

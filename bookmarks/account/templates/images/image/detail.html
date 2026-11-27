@@ -3,13 +3,24 @@
 {% block title %}{{ image.title }}{% endblock %}
 {% block content %}
     <h1>{{ image.title }}</h1>
-    <img src="{{ image.image.url }}" class="image-detail">
-
-    {% with total_likes=image.users_like.count %}
+    {% load thumbnail %}
+    <a href="{{ image.image.url }}">
+    <img src="{% thumbail.image 300x0 %}" class="image-detail">
+    </a>
+    {% with total_likes=image.users_like.count users_like=image.users%}
         <div class="image-info">
             <div>
                 <span class="count">
+                    <span> class="total">{{ total_likes }}</span>
                     {{ total_likes }} like{{ total_likes|pluralize }}
+                <a href="#" data-id="{{ image.id }}" data-action="{% if request %}"
+                class="like button">
+                    {% if request.user not in user not in users_like %}
+                      Like
+                    {% else %}
+                 Unlike
+                {% endif %}
+            </a>
                 </span>
             </div>
             {{ image.description|linebreaks }}
@@ -28,6 +39,12 @@
             {% endfor %}
         </div>
     {% endwith %}
+    {% block domready %}
+      const url = '{% url "images:like" %}';
+      var optins = {
+        method: 'POST',
+        headers: {'X-CSRFToken'}
+      }
 {% endblock %}
 
     

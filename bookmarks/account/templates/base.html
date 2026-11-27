@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -46,6 +47,13 @@
             {% endfor %}
         </ul>
     {% endif %}
-
+        <script src="https://jsdelivr.net"></script>
+<script>
+    const csrftoken  = Cookies.get('csrftoken');
+    document.addEventListener('DOMContentLoaded', (event) => {
+        {% block domReady %}
+        {% endblock %}
+    });
+</script>
 </body>
 </html>
